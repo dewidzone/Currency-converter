@@ -7,7 +7,7 @@ export default function MainPage() {
   const [targetCurrency, setTargetCurrency] = useState("");
   const [amountInSourceCurrency, setAmountInSourceCurrency] = useState(0);
   const [amountInTargetCurrency, setAmountInTargetCurrency] = useState(0);
-
+  const [loading, setLoading] = useState(true);
 
   const [currencyNames, setCurrencyNames] = useState([]);
   //handle submit method
@@ -27,7 +27,7 @@ const handleSubmit = async (e) => {
       });
 
       setAmountInTargetCurrency(response.data.targetAmount);
-
+      setLoading(false);
       
       console.log(amountInSourceCurrency, amountInTargetCurrency );
 
@@ -122,13 +122,16 @@ useEffect(() =>{
           </form>
         </section>
       </div>
-      <section className="mt-5">
+
+      {!loading ? (
+      <section className="lg:mx-32 text-2xl font-bold mt-5 opacity-60">
       {amountInSourceCurrency} {currencyNames[sourceCurrency]} is equals to {""}
-      {amountInTargetCurrency} in {currencyNames[targetCurrency]}
+      <span className="text-green-400 font-bold">{amountInTargetCurrency} </span> in {currencyNames[targetCurrency]}
 
       </section>
-      
-
+      ) : (
+        null
+    )}
     </div>
   )
 }
