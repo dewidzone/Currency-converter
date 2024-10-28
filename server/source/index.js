@@ -43,7 +43,8 @@ app.get("/convert", async (req, res) => {
         }
 
         const targetAmount = (targetRate / sourceRate) * amount;
-        return res.json({ targetAmount });
+        return res.json({ targetAmount: targetAmount.toFixed(2) });
+
     } catch (err) {
         console.error(err);
         return res.status(500).json({ error: "An error occurred during conversion" });

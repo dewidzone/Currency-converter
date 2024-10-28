@@ -122,7 +122,13 @@ useEffect(() =>{
           </form>
         </section>
       </div>
-      {amountInTargetCurrency}
+      <section className="mt-5">
+      {amountInSourceCurrency} {currencyNames[sourceCurrency]} is equals to {""}
+      {amountInTargetCurrency} in {currencyNames[targetCurrency]}
+
+      </section>
+      
+
     </div>
   )
 }
