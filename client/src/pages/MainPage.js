@@ -118,7 +118,7 @@ useEffect(() =>{
             placeholder="Amount in Source Currency" required />
 
           </div>
-            <button className="bg-green-600 hover:bg-green-800 text-white font-bold py-2 px-4 rounded-md">Get the Targett Currency</button>
+            <button className="bg-green-500 hover:bg-green-900 text-white font-bold py-2 px-4 rounded-md">Get the Targett Currency</button>
           </form>
         </section>
       </div>
